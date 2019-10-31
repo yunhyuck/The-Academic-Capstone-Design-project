@@ -1,3 +1,3 @@
-# The-Academic-Capstone-Design-project
-Commercial Smart Plug 
+# The-Academic-Capstone-Design
+Team. ColdBrew **Commercial Smart Plug** 
 -----------------------
