@@ -1,3 +1,4 @@
 # The-Academic-Capstone-Design
-Team. ColdBrew **Commercial Smart Plug** 
+Commercial Smart Plug
+Team. ColdBrew 
 -----------------------
