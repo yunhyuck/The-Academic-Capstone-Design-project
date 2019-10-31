@@ -13,11 +13,11 @@ webOS 지원 버전 (OSE 1.x)
 
 하드웨어
 * CPU
-* Minimum: Intel Core i5 dual-core with 4 threads
+  * Minimum: Intel Core i5 dual-core with 4 threads
 + RAM
-+Minimum: 8 GB
+  + Minimum: 8 GB
 - Storage
-- Minimum: HDD with 100 GB of free disk space
+  - Minimum: HDD with 100 GB of free disk space
 
 ## 2. 빌드 환경
 
