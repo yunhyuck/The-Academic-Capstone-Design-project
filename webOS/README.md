@@ -70,12 +70,13 @@ cpu cores    : 2
 
 #### 3-2. 빌드 구성
 ```
-// $ ./mcf -p <number of physical CPU cores / 2> -b <number of physical CPU cores / 2> <target-device-name>
-$ ./mcf -p 1 -b 1 raspberrypi3
+$ ./mcf -p <number of physical CPU cores / 2> -b <number of physical CPU cores / 2> <target-device-name>
 ```
-
 * raspberrypi4 (webOS OSE 2.0 이상)
 * raspberrypi3 (webOS OSE 1.x 버전)
+```
+$ ./mcf -p 1 -b 1 raspberrypi3
+```
 
 #### 4. 이미지 구축
 * webos-image : 개발 도구가없는 프로덕션 이미지
@@ -87,3 +88,9 @@ $ bitbake webos-image
 $ make webos-image
 ```
 
+> 빌드 오류 발생시 진행.
+```
+$ unset DISTRO
+$ unset MACHINE
+$ unset MACHINES
+```
