@@ -128,7 +128,7 @@ $ sudo umount /dev/<sdXn>
 ##### 플래시 예.
 ```
 $ sudo umount /dev/sdb1
-$ sudo dd bs=4M if=./webos-image-raspberrypi4.rootfs.wic of=/dev/sdb
+$ sudo dd bs=4M if=./webos-image-raspberrypi3.rootfs.wic of=/dev/sdb
 $ sudo umount /dev/sdb1
 ```
 
