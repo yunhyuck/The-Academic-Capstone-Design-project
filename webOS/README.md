@@ -132,4 +132,4 @@ $ sudo dd bs=4M if=./webos-image-raspberrypi4.rootfs.wic of=/dev/sdb
 $ sudo umount /dev/sdb1
 ```
 
-<img src="https://www.webosose.org/images/docs/guides/setup/webosose-bootup-launcher.png" width="40%" height="30%" title="webOS OSE 1.x" alt="RubberDuck"></img>
+<img src="https://www.webosose.org/images/docs/guides/setup/webosose-bootup-launcher.png" width="70%" height="50%" title="webOS OSE 1.x" alt="RubberDuck"></img>
