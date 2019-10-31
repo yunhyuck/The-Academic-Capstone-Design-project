@@ -103,4 +103,31 @@ $ bitbake webos-image-devel
 * Raspberry Pi3 결과 이미지 생성 장소
 > BUILD/deploy/images/raspberrypi3/webos-image-raspberrypi3.rootfs.rpi-sdimg.
 
+## 3-2. 이미지 플래시
+### Linux
+#### 1. 위치 변경
+```
+$ cd <path where the image is located>
+```
 
+#### 2. microSD 카드 장치 이름 확인
+```
+$ sudo fdisk -l
+```
+
+#### 3. 플래시 명령어 
+```
+$ sudo umount /dev/<sdXn>
+$ sudo dd bs=4M if=./<webOS OSE image> of=/dev/<sdX>
+$ sudo umount /dev/<sdXn>
+```
+
+* <sdXn> microSD 카드의 장치 이름
+* <sdX>파티션이 아니라 대용량 저장 장치
+ 
+##### 플래싱 예.
+```
+$ sudo umount /dev/sdb1
+$ sudo dd bs=4M if=./webos-image-raspberrypi4.rootfs.wic of=/dev/sdb
+$ sudo umount /dev/sdb1
+```
