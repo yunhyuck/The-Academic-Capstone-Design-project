@@ -2,7 +2,7 @@
 ## 1. 최소 사양 확인
 
 webOS 지원 버전 (OSE 1.x)
-- Raspberry Pi 3
+- *Raspberry Pi 3*
 - microSD card (8 GB or larger) and microSD card reader device
 - HDMI-compatible monitor and cable
 - Input devices such as a keyboard and a mouse
@@ -35,6 +35,6 @@ webOS 지원 버전 (OSE 1.x)
 ## 3. 구축 
 
 WebOS OSE repository 복제
-> $ git clone https://github.com/webosose/build-webos.git
+> $ git clone https://github.com/webosose/build-webos.git  
 > $ cd build-webos
 
