@@ -94,3 +94,13 @@ $ unset DISTRO
 $ unset MACHINE
 $ unset MACHINES
 ```
+
+#### 5. 이미지 빌드
+```
+$ source oe-init-build-env
+$ bitbake webos-image-devel
+```
+* Raspberry Pi3 결과 이미지 생성 장소
+> BUILD/deploy/images/raspberrypi3/webos-image-raspberrypi3.rootfs.rpi-sdimg.
+
+
