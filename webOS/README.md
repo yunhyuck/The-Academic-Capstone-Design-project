@@ -66,7 +66,7 @@ $ cat /proc/cpuinfo | grep "cpu cores" | uniq
 cpu cores    : 2
 ```
 
-** -p 및 -b 옵션 값은 1 << (1*2) / 2 >>
+** -p 및 -b 옵션 값은 *1* << (1*2) / 2 >> **
 
 #### 3-2. 빌드 구성
 ```
