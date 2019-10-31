@@ -31,3 +31,10 @@ webOS 지원 버전 (OSE 1.x)
 -- 12 GB
 - Storage
 -- SSD with 250 GB of free disk space
+
+## 3. 구축 
+
+WebOS OSE repository 복제
+> $ git clone https://github.com/webosose/build-webos.git
+> $ cd build-webos
+
