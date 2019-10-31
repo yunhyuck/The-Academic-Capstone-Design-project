@@ -125,9 +125,11 @@ $ sudo umount /dev/<sdXn>
 * 'sdXn'microSD 카드의 장치 이름
 * 'sdX'파티션이 아니라 대용량 저장 장치
  
-##### 플래 예.
+##### 플래시 예.
 ```
 $ sudo umount /dev/sdb1
 $ sudo dd bs=4M if=./webos-image-raspberrypi4.rootfs.wic of=/dev/sdb
 $ sudo umount /dev/sdb1
 ```
+
+<img src="https://www.webosose.org/images/docs/guides/setup/webosose-bootup-launcher.png" width="40%" height="30%" title="webOS OSE 1.x" alt="RubberDuck"></img>
