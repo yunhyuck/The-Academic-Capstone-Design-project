@@ -122,8 +122,8 @@ $ sudo dd bs=4M if=./<webOS OSE image> of=/dev/<sdX>
 $ sudo umount /dev/<sdXn>
 ```
 
-* <sdXn> microSD 카드의 장치 이름
-* <sdX>파티션이 아니라 대용량 저장 장치
+* *<sdXn>*microSD 카드의 장치 이름
+* *<sdX>*파티션이 아니라 대용량 저장 장치
  
 ##### 플래싱 예.
 ```
