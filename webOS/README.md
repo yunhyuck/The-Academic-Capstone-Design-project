@@ -18,3 +18,16 @@ webOS 지원 버전 (OSE 1.x)
 -- Minimum: 8 GB
 - Storage
 -- Minimum: HDD with 100 GB of free disk space
+
+## 2. 빌드 환경
+
+운영체제
+- Ubuntu 18.04 LTS (Bionic Beaver) 64-bit (Recommended)
+
+하드웨어
+- CPU
+-- Intel Core i5 dual-core with 4 threads
+- RAM
+-- 12 GB
+- Storage
+-- SSD with 250 GB of free disk space
