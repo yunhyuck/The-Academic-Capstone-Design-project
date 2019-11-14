@@ -1,0 +1,127 @@
+#include <ESP8266WiFi.h>
+#include <SPI.h>
+#include <MFRC522.h>
+
+
+#define SS_PIN D10
+#define RST_PIN D9
+
+const char* ssid = "Harunuts";
+const char* password = "dw@dnjs0126";
+const uint16_t port = 8090;
+const char * host = "192.168.137.159";
+
+
+String Hex_UID = "";
+String Hex_tmp = "";
+String R_UID = "";
+
+String Hex(byte *buffer, byte bufferSize) {
+  Hex_UID = buffer[0];
+  for (byte i = 1; i < bufferSize; i++) {
+     Hex_tmp = buffer[i];
+     Hex_UID.concat(Hex_tmp);
+  }
+   return Hex_UID;
+}
+
+void WiFiEvent(WiFiEvent_t event) {
+    switch(event) {
+        case WIFI_EVENT_STAMODE_GOT_IP:
+            Serial.println("WiFi connected");
+            Serial.println("IP address: ");
+            Serial.print(WiFi.localIP());
+            break;
+        case WIFI_EVENT_STAMODE_DISCONNECTED:
+            Serial.println("WiFi lost connection");
+            break;
+    }
+}
+
+MFRC522 rfid(SS_PIN, RST_PIN); // Instance of the class
+
+MFRC522::MIFARE_Key key; 
+byte nuidPICC[4];
+
+void setup() { 
+  Serial.begin(115200);
+  SPI.begin(); 
+  pinMode(D8, OUTPUT);
+  rfid.PCD_Init();
+  
+  for (byte i = 0; i < 6; i++) {
+    key.keyByte[i] = 0xFF;
+  }
+  Serial.println("리더기에 RFID를 읽혀주세요");
+  //WiFi.disconnect(true);
+  delay(1000);
+  //WiFi.onEvent(WiFiEvent);
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED){
+    delay(1000);
+    Serial.println("Con");
+  }
+    Serial.println(WiFi.localIP());
+}
+ 
+void loop() {
+
+  if ( ! rfid.PICC_IsNewCardPresent()){
+     return;
+  }
+  if ( ! rfid.PICC_ReadCardSerial())
+    return;
+
+  MFRC522::PICC_Type piccType = rfid.PICC_GetType(rfid.uid.sak);
+  if (piccType != MFRC522::PICC_TYPE_MIFARE_MINI &&  
+    piccType != MFRC522::PICC_TYPE_MIFARE_1K &&
+    piccType != MFRC522::PICC_TYPE_MIFARE_4K) {
+    Serial.println(F("Your tag is not of type MIFARE Classic."));
+    return;
+  }
+  if (rfid.uid.uidByte[0] != nuidPICC[0] || 
+    rfid.uid.uidByte[1] != nuidPICC[1] || 
+    rfid.uid.uidByte[2] != nuidPICC[2] || 
+    rfid.uid.uidByte[3] != nuidPICC[3] ) {
+    Serial.println(F("A new card has been detected."));
+    for (byte i = 0; i < 4; i++) {
+      nuidPICC[i] = rfid.uid.uidByte[i];
+    }
+    R_UID = Hex(rfid.uid.uidByte, rfid.uid.size);
+    Serial.print(F("Your RFID 32bit ID Value :: "));
+    Serial.println(R_UID);
+
+    if(R_UID == "16916575184"){
+      digitalWrite(D8, 1);
+      Serial.println("ON");
+      Serial.println("");
+      
+    }else{
+      digitalWrite(D8, 0);
+      Serial.println("OFF");
+      Serial.println("");
+    }
+  }
+  else Serial.println(F("Card read previously."));
+
+  rfid.PICC_HaltA();
+  rfid.PCD_StopCrypto1();
+
+  WiFiClient client;
+    if (!client.connect(host, port)) {
+
+        Serial.println("Connection to host failed");
+        delay(1000);
+        return;
+    }
+ 
+    Serial.println("Connected to server successful!");
+
+    client.print(R_UID);
+
+    Serial.println("Disconnecting...");
+    client.stop();
+ 
+    delay(1000);
+}
