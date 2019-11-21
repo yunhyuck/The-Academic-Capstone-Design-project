@@ -96,6 +96,11 @@ void loop() {
       digitalWrite(D8, 1);
       Serial.println("ON");
       Serial.println("");
+      int count = 1; 
+      
+      while(count <= 100000){
+          count = count + 1; 
+      }
       
     }else{
       digitalWrite(D8, 0);
