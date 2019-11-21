@@ -100,6 +100,8 @@ void loop() {
       
       while(count <= 100000){
           count = count + 1; 
+          digitalWrite(D8, 0);
+          Serial.println("timeout");
       }
       
     }else{
